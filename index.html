@@ -128,13 +128,39 @@
   .slab .tile {
     position: relative; z-index: 1; aspect-ratio: 1; border-radius: 10px; background: var(--card); border: 1px solid var(--c);
     display: grid; place-items: center; text-align: center; font-weight: 700; font-size: clamp(0.5rem, 1vw, 0.72rem); line-height: 1.1; padding: 4px;
-    box-shadow: -6px 6px 0 color-mix(in srgb, var(--c) 40%, transparent);
+    box-shadow: -6px 6px 0 color-mix(in srgb, var(--c) 40%, transparent),
+      inset 0 2px 0 rgba(255, 255, 255, 0.85), inset 2px 0 0 rgba(255, 255, 255, 0.4),
+      inset 0 -3px 4px color-mix(in srgb, var(--c) 18%, transparent), inset -2px -2px 0 color-mix(in srgb, var(--c) 22%, transparent);
     transition: opacity 0.3s;
   }
   .slab .tile b { display: block; font-family: var(--mono); font-size: 1.6em; color: var(--c); }
-  .slab .tile .ti { display: block; width: 1.5em; height: 1.5em; margin: 0 auto 3px; fill: var(--tic-l, var(--c)); }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .slab .tile .ti { fill: var(--tic-d, var(--c)); } }
-  :root[data-theme="dark"] .slab .tile .ti { fill: var(--tic-d, var(--c)); }
+  .slab .tile .ti {
+    display: block; width: 1.5em; height: 1.5em; margin: 0 auto 3px; fill: var(--tic-l, var(--c));
+    filter: drop-shadow(-1px -1px 0 rgba(255, 255, 255, 0.95)) drop-shadow(1px 2px 1.5px rgba(0, 0, 0, 0.45));
+  }
+  .slab .tile b { text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.95), 1px 2px 2px rgba(0, 0, 0, 0.45); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .slab .tile {
+      box-shadow: -6px 6px 0 color-mix(in srgb, var(--c) 40%, transparent),
+        inset 0 2px 0 rgba(255, 255, 255, 0.14), inset 2px 0 0 rgba(255, 255, 255, 0.07),
+        inset 0 -3px 4px rgba(0, 0, 0, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.35);
+    }
+    :root:not([data-theme="light"]) .slab .tile .ti {
+      fill: var(--tic-d, var(--c));
+      filter: drop-shadow(-0.5px -0.75px 0 rgba(255, 255, 255, 0.28)) drop-shadow(0.75px 1.5px 1.5px rgba(0, 0, 0, 0.8));
+    }
+    :root:not([data-theme="light"]) .slab .tile b { text-shadow: -0.5px -0.75px 0 rgba(255, 255, 255, 0.22), 0.75px 1.5px 1.5px rgba(0, 0, 0, 0.8); }
+  }
+  :root[data-theme="dark"] .slab .tile {
+    box-shadow: -6px 6px 0 color-mix(in srgb, var(--c) 40%, transparent),
+      inset 0 2px 0 rgba(255, 255, 255, 0.14), inset 2px 0 0 rgba(255, 255, 255, 0.07),
+      inset 0 -3px 4px rgba(0, 0, 0, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.35);
+  }
+  :root[data-theme="dark"] .slab .tile .ti {
+    fill: var(--tic-d, var(--c));
+    filter: drop-shadow(-0.5px -0.75px 0 rgba(255, 255, 255, 0.28)) drop-shadow(0.75px 1.5px 1.5px rgba(0, 0, 0, 0.8));
+  }
+  :root[data-theme="dark"] .slab .tile b { text-shadow: -0.5px -0.75px 0 rgba(255, 255, 255, 0.22), 0.75px 1.5px 1.5px rgba(0, 0, 0, 0.8); }
   .slab .nm { position: absolute; left: 6%; bottom: -12%; font-family: var(--mono); font-weight: 800; font-size: clamp(0.9rem, 2vw, 1.4rem); color: var(--c); }
 
   /* Ribbons */
