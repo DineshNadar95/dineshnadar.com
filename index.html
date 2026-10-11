@@ -1268,7 +1268,7 @@ const PROJECTS = [
       'Section-aware chunking: transcriptions split on clinical headers like history, lab data, assessment and plan.',
       'Hybrid keyword and vector search, with Haiku writing plain-language summaries for patients.',
       'Every request traced locally with Phoenix. Total AWS spend so far is under a dollar.'] },
-  { title: 'Card wallet', status: 'In progress', s: 'var(--glow)', mock: 'wallet', mockUrl: 'https://claude.ai/artifact/Pr1QnMDaBbZxNT6TxksgX5',
+  { title: 'Card wallet', status: 'In progress', s: 'var(--glow)', mock: 'wallet', live: 'https://card-wallet-sigma.vercel.app',
     line: 'Tells you which of your own credit cards earns the most for each purchase.',
     tech: ['React', 'React Native', 'Python', 'Supabase', 'Render', 'Vercel'],
     lead: 'A web and mobile app. Add your cards from a preloaded list of US cards, then see the best ones to use for groceries, dining, travel and more.',
@@ -1277,7 +1277,7 @@ const PROJECTS = [
       'A scheduled agent refreshes card reward data every Sunday.',
       'Supabase for the database and Google login, the Python back end on Render, the web app on Vercel.',
       'Next: a nudge with the best card when you walk into a store.'] },
-  { title: 'Gamified to-do', status: 'In design', s: 'var(--ai)', mock: 'todo', mockUrl: 'https://claude.ai/artifact/Jx7X85sf8UB15vrSWMHoPF',
+  { title: 'Gamified to-do', status: 'In design', s: 'var(--ai)', mock: 'todo', live: 'https://questlist-git-staging-dnadar.vercel.app',
     line: 'To-do lists you share and race through with friends.',
     tech: ['React', 'React Native', 'Voice input'],
     lead: 'Personal, shared and tracked to-dos, with a heavily game-like interface.',
@@ -1403,7 +1403,7 @@ const PROJECTS = [
       <h4 class="reveal" ${rv()}>Tech used</h4>
       <div class="reveal chips" ${rv()}>${p.tech.map(t => `<span class="chip">${t}</span>`).join('')}</div>
       ${p.mock ? `<h4 class="reveal" ${rv()}>Mockup screens</h4><div class="reveal shots" ${rv()}>${[0, 1, 2].map(k => `<div class="phone"><div class="scr" data-mock="mock-${p.mock}-${k}"></div></div>`).join('')}</div>` : ''}
-      <div class="reveal plinks" ${rv()}>${p.live ? `<a class="live" href="${p.live}" target="_blank" rel="noopener">Open the live app ↗</a>` : ''}${p.mockUrl ? `<a href="${p.mockUrl}" target="_blank" rel="noopener">Full mockup ↗</a>` : ''}</div>`;
+      <div class="reveal plinks" ${rv()}>${p.live ? `<a class="live" href="${p.live}" target="_blank" rel="noopener">Open the live app ↗</a>` : ''}</div>`;
     body.querySelectorAll('[data-mock]').forEach(s => { const t = document.getElementById(s.dataset.mock); if (t) s.appendChild(t.content.cloneNode(true)); });
     overlay.setAttribute('aria-hidden', 'false');
     requestAnimationFrame(() => overlay.classList.add('on'));

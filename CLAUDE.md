@@ -68,10 +68,12 @@ horizontal station track `#xtrack` (currently unused).
 ### PROJECTS (~line 1192)
 Array of `{ title, status, s, line, tech, lead, how }` plus either:
 - `live`: URL → card shows a "Live ↗" tag and the overlay gets an
-  "Open the live app" link (health-rag), and/or
-- `mock`: `'wallet'` or `'todo'` + `mockUrl` → the overlay renders three phone
+  "Open the live app" link, and/or
+- `mock`: `'wallet'` or `'todo'` → the overlay renders three phone
   frames filled from templates `#mock-<mock>-0/1/2` (see below).
 `s` is the accent color (a CSS var reference like `var(--be)`).
+All three current projects have `live` URLs: health-rag (CloudFront),
+Card wallet (Vercel), Gamified to-do / questlist (Vercel staging).
 Current projects: health-rag (live), Card wallet (mock `wallet`), Gamified
 to-do (mock `todo`).
 
